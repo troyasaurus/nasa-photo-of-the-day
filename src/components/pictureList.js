@@ -13,6 +13,22 @@ const pictureList = () => {
         .then(response => {
             newPhoto(response.data)
         })
+
+    }, []);
+
+
+
+    return(
+        <div>
+            <pictureCard
+            key={photo.id}
+            date={photo.date}
+            title={photo.title}
+            description={photo.description}
+            picture={photo.url}/>
         
-    })
+        </div>
+    )
 }
+
+export default pictureList;
