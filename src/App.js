@@ -19,7 +19,9 @@ margin: 40px;
 
 function App() {
   return (
+    
     <Page className="App">
+      
       <div className= "centerStuff">
         <PictureList/>
       </div>

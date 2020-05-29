@@ -25,6 +25,7 @@ export default function PictureList (){
 
     return(
         <div>
+            <h1>NASA Photo of the Day!</h1>
             <PictureCard photo = {photo}/>
         </div>
     )
