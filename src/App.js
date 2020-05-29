@@ -1,15 +1,25 @@
 import React from "react";
 import "./App.css";
 import PictureList from './components/PictureList'
-import {Button} from 'reactstrap';
+import styled from 'styled-components'
 
+
+
+//page styling 
+const Page = styled.section`
+width: 80%; 
+display: flex; 
+justify-content: center;
+align-content: center; 
+margin 20px 0; 
+`;
 
 function App() {
   return (
-    <div className="App">
-      <Button> tester button </Button>
+    <Page className="App">
+      
       <PictureList/>
-    </div>
+    </Page>
   );
 }
 
