@@ -1,20 +1,23 @@
-import React, {useState, useEffect} from 'react';
+import React, { useState, useEffect } from 'react';
 import axios from 'axios';
-import pictureCard from './pictureCard';
-import { Card, CardTitle, CardText, CardImg, CardBody, Button } from 'reactstrap';
+import PictureCard from './PictureCard';
 
 
 
-const pictureList = () => {
-    const [photo, newPhoto] = useState({}); 
-    const [date, setDate] = useState(""); 
+
+export default function PictureList (){
+    const [photo, newPhoto] = useState([]); 
+   
 
     useEffect(() => {
         axios
         .get('https://api.nasa.gov/planetary/apod?api_key=LyUAXHY7mEpHs5GdUDc43GhVhX2IUuuO8LC9HnP7')
         .then(response => {
             newPhoto(response.data);
-            setDate(response.data.date);
+            
+        })
+        .catch(error => {
+            console.log("The data was not returned", error);
         })
 
     }, []);
@@ -22,16 +25,13 @@ const pictureList = () => {
 
 
     return(
-        <Card className="pictureContainer">
-          <CardImg src={pictureCard.url} alt="Nasa Photo of the Day"/>
-            <CardBody>
-                <CardTitle className="card">{photo.title}</CardTitle>
-                <CardText className="card">{photo.explanation}>{}</CardText>
-                <CardText className="card">{photo.date}>{}</CardText>
-                <Button className="button"></Button>
-            </CardBody>
-        </Card>
+    <div>
+        {/* {photo.map(photos => {
+           return <PictureCard photos={photo} key={photo.id}/>; */}
+       })}
+
+    </div>
+       
     )
 }
 
-export default pictureList;
